@@ -1,13 +1,24 @@
 # Devcamp-2023 Observability Hands-on
 
 ## Instructions
-1. Clone this repo
-2. Every hands-on has its own branch.
-3. Don't checkout the branch, just follow the instructions.
-4. Each branch will continue from the previous branch.
-5. Don't cheat, try to do it yourself first. God and your friends in behind is watching you.
-
-## What do you need?
-1. Docker
-2. Docker Compose
-3. Code Editor
+1. Simple instrumentation 
+   - Install prometheus client instrumentation for client 
+   - Add prometheus client instrumentation for server 
+   - Try to run the server then open http://localhost:8080/metrics
+2. Instrumentation with labels
+   - Add labels to the instrumentation
+   - Try to run the server then open http://localhost:8080/metrics
+3. Prometheus dashboard
+   - Create prometheus config file
+   - Add prometheus to docker-compose
+   - Try to run the server then open http://localhost:9090
+   - Try to run the server then open http://localhost:9090/targets
+   - Try to execute some queries
+4. Try node exporter
+   - Add node exporter to docker-compose
+   - Try to run the server then open http://localhost:9090/targets
+   - Try to execute some queries
+5. Try postgres exporter
+   - Add postgres exporter to docker-compose
+   - Try to run the server then open http://localhost:9090/targets
+   - Try to execute some queries

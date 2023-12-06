@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  hands-on-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: devcamp-hands-on-2023
+    ports:
+      - "5441:5432"
