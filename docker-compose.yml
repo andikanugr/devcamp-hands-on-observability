@@ -2,6 +2,7 @@ version: '3.1'
 
 services:
   hands-on-app:
+    container_name: hands-on-app
     build:
       context: .
       dockerfile: Dockerfile
@@ -16,3 +17,40 @@ services:
       POSTGRES_DB: devcamp-hands-on-2023
     ports:
       - "5441:5432"
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus/:/etc/prometheus/
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    ports:
+      - 9090:9090
+    restart: always
+
+  node-exporter:
+    image: prom/node-exporter
+    ports:
+      - "9100:9100"
+    volumes:
+      - "/proc:/host/proc:ro"
+      - "/sys:/host/sys:ro"
+      - "/:/rootfs:ro"
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.ignored-mount-points'
+      - '^/(sys|proc|dev|host|etc)($|/)'
+    restart: unless-stopped
+
+  postgres-exporter:
+    image: wrouesnel/postgres_exporter:latest
+    environment:
+      DATA_SOURCE_NAME: "postgresql://postgres:mysecretpassword@postgres:5432/devcamp-hands-on-2023?sslmode=disable"
+    depends_on:
+      - postgres
+    ports:
+      - "9187:9187"
