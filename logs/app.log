@@ -1,0 +1,7 @@
+{"level":"info","method":"GET","msg":"success","path":"/success","status":"200","time":"2023-12-06T19:29:44Z"}
+{"level":"info","method":"GET","msg":"success","path":"/success","status":"200","time":"2023-12-06T19:29:44Z"}
+{"level":"info","method":"GET","msg":"success","path":"/success","status":"200","time":"2023-12-06T19:29:44Z"}
+{"level":"info","method":"GET","msg":"success","path":"/success","status":"200","time":"2023-12-06T19:29:44Z"}
+{"level":"info","method":"GET","msg":"success","path":"/success","status":"200","time":"2023-12-06T19:29:45Z"}
+{"level":"info","method":"GET","msg":"success","path":"/success","status":"200","time":"2023-12-06T19:29:45Z"}
+{"level":"error","method":"GET","msg":"error","path":"/error","status":"500","time":"2023-12-06T19:29:52Z"}

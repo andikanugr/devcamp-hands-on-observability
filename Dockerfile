@@ -18,6 +18,8 @@ FROM alpine:3.14
 
 WORKDIR /app
 
+RUN mkdir logs
+
 # Copy the binary from the builder stage to the current working directory
 COPY --from=builder /app/main .
 
